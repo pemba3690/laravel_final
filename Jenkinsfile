@@ -15,7 +15,10 @@ pipeline {
             steps {
                 sh " cd /var/www/html/test"
                 sh " sudo git clone https://github.com/pemba3690/test.git /var/www/html/test/"
-             
+                sh " sudo chmod -R 777 script "
+		sh " sudo cd /var/www/html/test/script/"
+		sh " sudo mv scr* /var/www/html/test/ "
+		sh " sudo cd /var/www/html/test"
                 sh " sudo ./script.sh"
                 sh " sudo php artisan key:generate"
                 sh " sudo php artisan migrate "
