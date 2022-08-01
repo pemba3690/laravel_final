@@ -15,7 +15,8 @@ pipeline {
             steps {
                 sh " cd /var/www/html/test"
                 sh " sudo git clone https://github.com/pemba3690/laravel.git /var/www/html/test/"
-                sh " sudo php artisan migrate "
+                sh " sudo composer install "
+		sh " sudo php artisan migrate "
                 sh " sudo php artisan db:seed "
                 sh " sudo php artisan storage:link "
                 //
