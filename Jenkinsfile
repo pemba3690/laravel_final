@@ -8,7 +8,6 @@ pipeline {
                 sh "sudo rm -rvf /var/www/html/test/.git*"
                 sh "sudo rm -rvf /var/www/html/test/.e*"
                 sh "sudo rm -rvf /var/www/html/test/.s*"
-                sh " sudo chmod -R 777 script.sh "
                 
             }
         }
