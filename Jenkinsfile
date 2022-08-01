@@ -8,7 +8,7 @@ pipeline {
                 sh "sudo rm -rvf /var/www/html/test/.git*"
                 sh "sudo rm -rvf /var/www/html/test/.e*"
                 sh "sudo rm -rvf /var/www/html/test/.s*"
-                sh " sudo chmod +x script.sh "
+                sh " sudo chmod -R a+x script.sh "
                 
             }
         }
