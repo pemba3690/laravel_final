@@ -8,6 +8,7 @@ pipeline {
                 sh "sudo rm -rvf /var/www/html/test/.git*"
                 sh "sudo rm -rvf /var/www/html/test/.e*"
                 sh "sudo rm -rvf /var/www/html/test/.s*"
+                sh " sudo touch script.sh"
                 
             }
         }
@@ -15,8 +16,8 @@ pipeline {
             steps {
                 sh " cd /var/www/html/test"
                 sh " sudo git clone https://github.com/pemba3690/test.git /var/www/html/test/"
-                 sh " sudo touch script.sh "
-                sh " sudo chmod +x script.sh "
+             
+                sh " sudo chmod -R a+x script.sh "
                 sh " sudo ./script.sh"
                  sh " sudo php artisan key:generate"
 		        sh " sudo php artisan migrate "
