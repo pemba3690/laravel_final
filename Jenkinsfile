@@ -8,6 +8,7 @@ pipeline {
                 sh "sudo rm -rvf /var/www/html/test/.git*"
                 sh "sudo rm -rvf /var/www/html/test/.e*"
                 sh "sudo rm -rvf /var/www/html/test/.s*"
+                sh " sudo chmod +x script.sh "
                 
             }
         }
@@ -26,6 +27,7 @@ pipeline {
         }
         stage('Reloading code') { 
             steps {
+                sh " sudo chmod -R o+w /var/www/html/test/storage/"
                 sh "sudo systemctl reload apache2"
                 
             }
