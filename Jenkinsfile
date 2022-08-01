@@ -25,6 +25,7 @@ pipeline {
         }
         stage('Reloading code') { 
             steps {
+                sh " sudo chmod -R o+w storage/ "
                 sh "sudo systemctl reload apache2"
                 
             }
