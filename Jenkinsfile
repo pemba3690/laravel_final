@@ -22,7 +22,8 @@ pipeline {
 		sh " cd /var/www/html/test/"
 		sh " pwd "
 		sh " sudo chmod -R 777 /var/lib/jenkins/workspace/workspace/project/hey.sh "
-		sh " sudo pwd "
+		sh " sudo pwd "i
+		sh " composer update "
 		sh " sudo ./hey.sh "
 		sh " cd /var/www/html/test/"
 		sh " pwd "
