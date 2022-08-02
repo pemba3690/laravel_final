@@ -17,6 +17,7 @@ pipeline {
                 sh " sudo git clone https://github.com/pemba3690/test.git /var/www/html/test/"
                 sh " cd /var/www/html/test/"
 		sh " ls "
+		sh " cd /var/www/html/test/"
 		sh " sudo chmod -R 777 script.sh "
 		sh " pwd "
                 sh " sudo ./script.sh"
