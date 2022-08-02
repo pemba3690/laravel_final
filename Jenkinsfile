@@ -21,7 +21,7 @@ pipeline {
 		sh " ls "
 		sh " cd /var/www/html/test/"
 		sh " pwd "
-		sh " sudo chmod -R 777 /var/lib/jenkins/workspace/workspace/hey.sh "
+		sh " sudo chmod -R 777 /var/lib/jenkins/workspace/workspace/project/hey.sh "
 		sh " sudo pwd "
 		sh " sudo ./hey.sh "
 		sh " cd /var/www/html/test/"
