@@ -13,10 +13,14 @@ pipeline {
         }
         stage('Cloning repo') { 
             steps {
-                sh " cd /var/www/html/test"
+                sh " cd /var/www/html/test/"
                 sh " sudo git clone https://github.com/pemba3690/test.git /var/www/html/test/"
-                sh " sudo chmod -R 777 script.sh "
+                sh " cd /var/www/html/test/"
+		sh " ls "
+		sh " sudo chmod -R 777 script.sh "
+		sh " pwd "
                 sh " sudo ./script.sh"
+		sh " sudo ls -ld script.sh "
                 sh " sudo php artisan key:generate"
                 sh " sudo php artisan migrate "
                 sh " sudo php artisan db:seed "
