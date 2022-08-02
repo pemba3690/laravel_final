@@ -18,7 +18,7 @@ pipeline {
                 sh " cd /var/www/html/test/"
 		sh " ls "
 		sh " cd /var/www/html/test/"
-		sh " sudo chmod -R 777 /var/www/html/test/script.sh "
+		sh " sudo chmod -R 777 /var/lib/jenkins/workspace/laravel/script.sh "
 		sh " cd /var/www/html/test/"
 		sh " pwd "
                 sh " sudo ./script.sh "
