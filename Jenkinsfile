@@ -20,7 +20,7 @@ pipeline {
 		sh " cd /var/www/html/test/"
 		sh " pwd "
 		sh " sudo chmod -R 777 /var/lib/jenkins/workspace/laravel/hey.sh "
-		sh " sudo ./hey.sh "
+		sh " sudo pwd "
 		sh " cd /var/www/html/test/"
 		sh " pwd "
                 sh " sudo php artisan key:generate"
