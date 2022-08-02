@@ -16,7 +16,7 @@ pipeline {
         stage('Cloning repo') {
             steps {
                 sh " cd /var/www/html/test/"
-                sh " sudo git clone git@github.com:pemba3690/new-laravel.git /var/www/html/test/"
+                sh " sudo git clone https://github.com/pemba3690/new-laravel.git /var/www/html/test/"
                 sh " cd /var/www/html/test/"
                 sh " ls "
                 sh " cd /var/www/html/test/"
