@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'php:8-fpm' } }
+    agent { dockerfile true }
   stages {
     stage("verify tooling") {
       steps {
