@@ -3,6 +3,16 @@ pipeline {
   stages {
     stage("verify tooling") {
       steps {
+          agent {
+                docker {
+                    image 'php:8-fpm'
+                    // Run the container on the node specified at the
+                    // top-level of the Pipeline, in the same workspace,
+                    // rather than on a new node entirely:
+                    reuseNode true
+                }
+            }
+          
         sh '''
            sudo docker version
            sudo docker compose version
