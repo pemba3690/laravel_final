@@ -12,6 +12,7 @@ pipeline {
                     reuseNode true
                 }
             }
+      }
           
      //   sh '''
          //  sudo docker version
@@ -20,10 +21,10 @@ pipeline {
       //  '''
       }
     }
-    stage('Prune Docker data') {
-      steps {
-        sh 'sudo docker system prune -a --volumes -f'
-      }
+  //  stage('Prune Docker data') {
+   //   steps {
+  //      sh 'sudo docker system prune -a --volumes -f'
+ /*     }
     }
     stage('Start container') {
       steps {
@@ -37,7 +38,7 @@ pipeline {
         sh 'sudo curl http://localhost:8848 '
       }
     }
-  }
+  } *
   //post {
    // always {
     //  sh 'sudo docker compose ps'
