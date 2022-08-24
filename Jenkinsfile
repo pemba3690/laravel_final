@@ -13,11 +13,11 @@ pipeline {
                 }
             }
           
-        sh '''
-           sudo docker version
-           sudo docker compose version
-           sudo curl --version
-        '''
+     //   sh '''
+         //  sudo docker version
+        //   sudo docker compose version
+      //     sudo curl --version
+      //  '''
       }
     }
     stage('Prune Docker data') {
