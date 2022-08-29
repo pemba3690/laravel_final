@@ -44,6 +44,6 @@ pipeline {
       sh 'sudo docker compose ps'
     }
   }
-}
+
 
 
