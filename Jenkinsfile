@@ -14,17 +14,17 @@ pipeline {
             }
       }
           
-     //   sh '''
-         //  sudo docker version
-        //   sudo docker compose version
-      //     sudo curl --version
-      //  '''
+       sh '''
+          sudo docker version
+          sudo docker compose version
+          sudo curl --version
+       '''
       }
     }
-  //  stage('Prune Docker data') {
-   //   steps {
-  //      sh 'sudo docker system prune -a --volumes -f'
- /*     }
+    stage('Prune Docker data') {
+     steps {
+        sh 'sudo docker system prune -a --volumes -f'
+      }
     }
     stage('Start container') {
       steps {
@@ -38,12 +38,12 @@ pipeline {
         sh 'sudo curl http://localhost:8848 '
       }
     }
-  } *
-  //post {
-   // always {
-    //  sh 'sudo docker compose ps'
-  //  }
-//  }
+  } 
+  post {
+    always {
+      sh 'sudo docker compose ps'
+    }
+  }
 }
 
 
