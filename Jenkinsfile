@@ -1,36 +1,25 @@
 pipeline {
-    agent any
+  agent any
   stages {
     stage("verify tooling") {
       steps {
-          agent {
-                docker {
-                    image 'php:8-fpm'
-                    // Run the container on the node specified at the
-                    // top-level of the Pipeline, in the same workspace,
-                    // rather than on a new node entirely:
-                    reuseNode true
-                }
-            }
-      }
-          
-       sh '''
-          sudo docker version
-          sudo docker compose version
-          sudo curl --version
-       '''
+        sh '''
+           sudo docker version
+           sudo docker compose version
+           sudo curl --version
+        '''
       }
     }
     stage('Prune Docker data') {
-     steps {
+      steps {
         sh 'sudo docker system prune -a --volumes -f'
       }
     }
     stage('Start container') {
       steps {
-       sh 'sudo docker-compose build '
-        sh 'sudo docker-compose up -d '
-        sh 'sudo docker-compose ps'
+       sh 'sudo docker compose build '
+        sh 'sudo docker compose up -d --no-color --wait'
+        sh 'sudo docker compose ps'
       }
     }
     stage('Run tests against the container') {
@@ -38,10 +27,11 @@ pipeline {
         sh 'sudo curl http://localhost:8848 '
       }
     }
-  } 
+  }
   post {
     always {
+      sh 'sudo docker compose down --remove-orphans -v'
       sh 'sudo docker compose ps'
     }
   }
-
+}
